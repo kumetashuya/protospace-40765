@@ -1,0 +1,15 @@
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <p>こんにちは、<%= link_to "#{current_user.name}さん", user_path(current_user) %></p>
+      </div>
+    <% end %>
+    <div class="card__wrapper">
+      <%# 部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <% @prototypes.each do |prototype| %>
+        <%= render partial: 'prototype', locals: { prototype: prototype } %>
+      <% end %>
+    </div>
+  </div>
+</main>
